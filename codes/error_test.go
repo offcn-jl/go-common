@@ -14,5 +14,8 @@ import (
 )
 
 func TestErrorText(t *testing.T) {
-	assert.Equal(t, errorText[InternalErrorUnknown], ErrorText(InternalErrorUnknown))
+	// 测试已知错误代码的文本返回是否符合预期
+	assert.Equal(t, errorText[InternalErrorMissingConfig], ErrorText(InternalErrorMissingConfig))
+	// 测试未知错误代码的文本返回是否符合预期
+	assert.Equal(t, errorText[InternalErrorUnknown], ErrorText(-1))
 }

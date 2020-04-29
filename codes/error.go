@@ -152,5 +152,8 @@ var errorText = map[int]string{
 
 // ErrorText 用于获取错误代码对应的错误文本
 func ErrorText(code int) string {
-	return errorText[code]
+	if errorText[code] != "" {
+		return errorText[code]
+	}
+	return errorText[InternalErrorUnknown]
 }

@@ -27,7 +27,7 @@ func init() {
 
 // Log 用于打印日志
 func Log(log string) {
-	_, _ = fmt.Fprintf(DefaultWriter, "[%s-Log] %v | %s\n",
+	_, _ = fmt.Fprintf(DefaultWriter, "[%s-LOG] %v | %s\n",
 		configer.Conf.Project,
 		time.Now().Format("2006/01/02 - 15:04:05"),
 		log,
@@ -36,12 +36,12 @@ func Log(log string) {
 
 // Error 用于打印错误
 func Error(err error) {
-	_, _ = fmt.Fprintf(DefaultWriter, "[%s-Error] %v | %s\n",
+	_, _ = fmt.Fprintf(DefaultWriter, "[%s-ERROR] %v | %s\n",
 		configer.Conf.Project,
 		time.Now().Format("2006/01/02 - 15:04:05"),
 		err,
 	)
-	_, _ = fmt.Fprintf(DefaultWriter, "[%s-Error-Stacks] %v\n%s\n",
+	_, _ = fmt.Fprintf(DefaultWriter, "[%s-ERROR-STACKS] %v\n%s\n",
 		configer.Conf.Project,
 		time.Now().Format("2006/01/02 - 15:04:05"),
 		debug.Stack(), // 输出调用堆栈
@@ -51,12 +51,12 @@ func Error(err error) {
 
 // Panic 用于打印错误后抛出 panic
 func Panic(err error) {
-	_, _ = fmt.Fprintf(DefaultWriter, "[%s-Error] %v | %s\n",
+	_, _ = fmt.Fprintf(DefaultWriter, "[%s-PANIC] %v | %s\n",
 		configer.Conf.Project,
 		time.Now().Format("2006/01/02 - 15:04:05"),
 		err,
 	)
-	_, _ = fmt.Fprintf(DefaultWriter, "[%s-error-Stacks] %v\n%s\n",
+	_, _ = fmt.Fprintf(DefaultWriter, "[%s-PANIC-STACKS] %v\n%s\n",
 		configer.Conf.Project,
 		time.Now().Format("2006/01/02 - 15:04:05"),
 		debug.Stack(), // 输出调用堆栈
@@ -68,7 +68,7 @@ func Panic(err error) {
 func DebugToJson(name string, parameters interface{}) {
 	if configer.Conf.Debug {
 		jsonStrings, _ := json.Marshal(parameters)
-		_, _ = fmt.Fprintf(DefaultWriter, "[%s-Debug-Json] %v | %s --> %s\n",
+		_, _ = fmt.Fprintf(DefaultWriter, "[%s-DEBUG-JSON] %v | %s --> %s\n",
 			configer.Conf.Project,
 			time.Now().Format("2006/01/02 - 15:04:05"),
 			name,
@@ -80,7 +80,7 @@ func DebugToJson(name string, parameters interface{}) {
 // DebugToString 用于在调试模式开启时输出字符串
 func DebugToString(name string, str interface{}) {
 	if configer.Conf.Debug {
-		_, _ = fmt.Fprintf(DefaultWriter, "[%s-Debug-Sting] %v | %s --> %s\n",
+		_, _ = fmt.Fprintf(DefaultWriter, "[%s-DEBUG-STRING] %v | %s --> %s\n",
 			configer.Conf.Project,
 			time.Now().Format("2006/01/02 - 15:04:05"),
 			name,
