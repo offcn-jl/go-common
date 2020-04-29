@@ -8,4 +8,5 @@
 
 package common
 
+// Version 用来导出组件库的版本信息
 const Version = "0.1.0"
