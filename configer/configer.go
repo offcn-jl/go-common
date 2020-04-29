@@ -33,9 +33,8 @@ var Conf = config{
 func GetString(parameter string, def string) string {
 	if os.Getenv(parameter) != "" {
 		return os.Getenv(parameter)
-	} else {
-		return def
 	}
+	return def
 }
 
 // GetBool 用于获取布尔型环境变量
@@ -43,10 +42,8 @@ func GetBool(parameter string, def bool) bool {
 	if os.Getenv(parameter) != "" {
 		if strings.ToLower(os.Getenv(parameter)) == "true" {
 			return true
-		} else {
-			return false
 		}
-	} else {
-		return def
+		return false
 	}
+	return def
 }
