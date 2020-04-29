@@ -1,1 +1,1 @@
-# go-common
+# Golang 通用组件
