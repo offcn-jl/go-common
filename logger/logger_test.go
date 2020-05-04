@@ -11,8 +11,8 @@ package logger
 import (
 	"bytes"
 	"errors"
-	"github.com/offcn-jl/go-common/configer"
 	"github.com/stretchr/testify/assert"
+	"os"
 	"testing"
 )
 
@@ -61,11 +61,22 @@ func TestDebugToJson(t *testing.T) {
 	DefaultWriter = buffer
 	// 定义要输出的结构
 	data := map[string]interface{}{"data": "value", "foo": "bar"}
-	// 打开调试模式
-	configer.Conf.Debug = true
+
+	// 测试未打开调试模式的情况
+	// 关闭调试模式
+	assert.NoError(t, os.Setenv("Debug", "false"))
 	// 输出调试内容到日志
 	DebugToJson("DATA", data)
+	assert.NotContains(t, buffer.String(), "DATA")
+	assert.NotContains(t, buffer.String(), "DEBUG")
+	assert.NotContains(t, buffer.String(), "JSON")
+	assert.NotContains(t, buffer.String(), "{\"data\":\"value\",\"foo\":\"bar\"}")
 
+	// 测试打开调试模式的情况
+	// 打开调试模式
+	assert.NoError(t, os.Setenv("Debug", "true"))
+	// 输出调试内容到日志
+	DebugToJson("DATA", data)
 	assert.Contains(t, buffer.String(), "DATA")
 	assert.Contains(t, buffer.String(), "DEBUG")
 	assert.Contains(t, buffer.String(), "JSON")
@@ -79,11 +90,21 @@ func TestDebugToString(t *testing.T) {
 	DefaultWriter = buffer
 	// 定义要输出的结构
 	data := map[string]interface{}{"data": "value", "foo": "bar"}
+
+	// 测试未打开调试模式的情况
+	// 关闭调试模式
+	assert.NoError(t, os.Setenv("Debug", "false"))
+	// 输出调试内容到日志
+	DebugToJson("DATA", data)
+	assert.NotContains(t, buffer.String(), "DATA")
+	assert.NotContains(t, buffer.String(), "DEBUG")
+	assert.NotContains(t, buffer.String(), "STRING")
+	assert.NotContains(t, buffer.String(), "map[data:value foo:bar]")
+
 	// 打开调试模式
-	configer.Conf.Debug = true
+	assert.NoError(t, os.Setenv("Debug", "true"))
 	// 输出调试内容到日志
 	DebugToString("DATA", data)
-
 	assert.Contains(t, buffer.String(), "DATA")
 	assert.Contains(t, buffer.String(), "DEBUG")
 	assert.Contains(t, buffer.String(), "STRING")
