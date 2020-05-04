@@ -63,6 +63,8 @@ func TestDebugToJson(t *testing.T) {
 	data := map[string]interface{}{"data": "value", "foo": "bar"}
 
 	// 测试未打开调试模式的情况
+	// 关闭调试模式
+	assert.NoError(t, os.Setenv("Debug", "false"))
 	// 输出调试内容到日志
 	DebugToJson("DATA", data)
 	assert.NotContains(t, buffer.String(), "DATA")
@@ -90,6 +92,8 @@ func TestDebugToString(t *testing.T) {
 	data := map[string]interface{}{"data": "value", "foo": "bar"}
 
 	// 测试未打开调试模式的情况
+	// 关闭调试模式
+	assert.NoError(t, os.Setenv("Debug", "false"))
 	// 输出调试内容到日志
 	DebugToJson("DATA", data)
 	assert.NotContains(t, buffer.String(), "DATA")
