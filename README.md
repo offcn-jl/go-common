@@ -3,21 +3,23 @@
 
 ## 目录结构 ( 按文件名排序 ) 及组件列表
 
-|-- .github  // Github 配置  
-|	|-- workflows // 工作流 ( Actions ) 配置  
-|		|-- build.yml // new-feature 分支构建配置  
-|		|-- master-build.yml // master 分支构建配置  
-|-- codes  // 代码库  
-|	|-- error.go // 错误代码  
-|	|-- README.md // 说明  
-|-- configer  // 配置库  
-|	|-- configer.go // 配置工具  
-|-- logger  // 日志库  
-|	|-- logger.go // 日志工具  
-|	|-- .gitignore // GIT 配置文件，用于配置需要忽略提交的内容  
-|	|-- go.mod // go mod 配置文件  
-|	|-- README.md // 使用说明  
-|	|-- version.go // 通用组件版本
+- .github  ( Github 配置  
+    - workflows ( 工作流配置 ) 
+        - build.yml ( new-feature 分支构建配置 )  
+        - master-build.yml ( master 分支构建配置 )  
+- codes  ( 代码库 )  
+    - error.go ( 错误代码 )  
+    - README.md ( 说明 )  
+- configer  ( 配置库 )  
+    - configer.go ( 配置库 )  
+- logger  ( 日志库 )  
+    - logger.go ( 日志库 )  
+- .gitignore ( GIT 配置文件，用于配置需要忽略提交的内容 )  
+- go.mod ( go mod 配置文件 )  
+- go.sum ( go mod 相关文件 )  
+- LICENSE ( 版权声明 )  
+- README.md ( 使用说明 )  
+- version.go ( 通用组件版本 )
 
 ## 当前版本
 当前版本 : 正式版 0.1.1
