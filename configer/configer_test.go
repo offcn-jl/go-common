@@ -19,11 +19,11 @@ func TestIsTest(t *testing.T) {
 	assert.False(t, IsDebug())
 
 	// 测试开启调试
-	assert.NoError(t, os.Setenv("Debug", "true"))
+	assert.NoError(t, os.Setenv("DEBUG", "true"))
 	assert.True(t, IsDebug())
 
 	// 测试关闭调试
-	assert.NoError(t, os.Setenv("Debug", "false"))
+	assert.NoError(t, os.Setenv("DEBUG", "false"))
 	assert.False(t, IsDebug())
 }
 

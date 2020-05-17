@@ -22,24 +22,24 @@ type DSN struct {
 }
 
 func GetDSN() (d DSN) {
-	if configer.GetString("PostgreSQLHost", "") == "" {
-		logger.Panic(errors.New("未配置 PostgreSQLHost"))
+	if configer.GetString("POSTGRE_SQL_HOST", "") == "" {
+		logger.Panic(errors.New("未配置 POSTGRE_SQL_HOST"))
 	}
-	if configer.GetString("PostgreSQLPort", "") == "" {
-		logger.Panic(errors.New("未配置 PostgreSQLPort"))
+	if configer.GetString("POSTGRE_SQL_PORT", "") == "" {
+		logger.Panic(errors.New("未配置 POSTGRE_SQL_PORT"))
 	}
-	if configer.GetString("PostgreSQLUser", "") == "" {
-		logger.Panic(errors.New("未配置 PostgreSQLUser"))
+	if configer.GetString("POSTGRE_SQL_DB_NAME", "") == "" {
+		logger.Panic(errors.New("未配置 POSTGRE_SQL_DB_NAME"))
 	}
-	if configer.GetString("PostgreSQLDBName", "") == "" {
-		logger.Panic(errors.New("未配置 PostgreSQLDBName"))
+	if configer.GetString("POSTGRE_SQL_USER", "") == "" {
+		logger.Panic(errors.New("未配置 POSTGRE_SQL_USER"))
 	}
-	if configer.GetString("PostgreSQLPassword", "") == "" {
-		logger.Panic(errors.New("未配置 PostgreSQLPassword"))
+	if configer.GetString("POSTGRE_SQL_PASSWORD", "") == "" {
+		logger.Panic(errors.New("未配置 POSTGRE_SQL_PASSWORD"))
 	}
-	if configer.GetString("PostgreSQLSSLMode", "") == "" {
-		logger.Panic(errors.New("未配置 PostgreSQLSSLMode"))
+	if configer.GetString("POSTGRE_SQL_SSL_MODE", "") == "" {
+		logger.Panic(errors.New("未配置 POSTGRE_SQL_SSL_MODE"))
 	}
-	d.PostgreSQL = "host=" + configer.GetString("PostgreSQLHost", "") + " port=" + configer.GetString("PostgreSQLPort", "") + " user=" + configer.GetString("PostgreSQLUser", "") + " dbname=" + configer.GetString("PostgreSQLDBName", "") + " password=" + configer.GetString("PostgreSQLPassword", "") + " sslmode=" + configer.GetString("PostgreSQLSSLMode", "")
+	d.PostgreSQL = "host=" + configer.GetString("POSTGRE_SQL_HOST", "") + " port=" + configer.GetString("POSTGRE_SQL_PORT", "") + " user=" + configer.GetString("POSTGRE_SQL_USER", "") + " dbname=" + configer.GetString("POSTGRE_SQL_DB_NAME", "") + " password=" + configer.GetString("POSTGRE_SQL_PASSWORD", "") + " sslmode=" + configer.GetString("POSTGRE_SQL_SSL_MODE", "")
 	return
 }

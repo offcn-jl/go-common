@@ -14,7 +14,7 @@ import (
 )
 
 func IsDebug() bool {
-	return GetBool("Debug", false)
+	return GetBool("DEBUG", false)
 }
 
 // GetString 用于获取字符型环境变量
