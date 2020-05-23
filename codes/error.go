@@ -55,6 +55,7 @@ const (
 	NotExistSwiper     = 12003
 	NotExistClass      = 12004
 	NotExistAuthorizer = 12005
+	NotExistToken      = 12006
 
 	// 授权错误
 	NotCertified               = 13000
@@ -65,6 +66,7 @@ const (
 	NotCertifiedSession        = 13005
 	NotCertifiedMISToken       = 13006
 	NotCertifiedPermission     = 13007
+	NotCertifiedToken          = 13008
 
 	// 操作错误
 	WrongOperation            = 14000
@@ -77,6 +79,7 @@ const (
 	SmsCodeExpired            = 14007
 	SmsCodeError              = 14008
 	AlreadyExistGroup         = 14009
+	MissingAuthInfo           = 14010
 )
 
 // 定义错误代码对应的文本
@@ -126,21 +129,23 @@ var errorText = map[int]string{
 	NotExistSwiper:     "Swiper Is Not Exist",
 	NotExistClass:      "Class Is Not Exist",
 	NotExistAuthorizer: "Authorizer Is Not Exist",
+	NotExistToken:      "Token Is Not Exist",
 
 	// 授权错误
 	NotCertified:               "Not Certified",
-	NotCertifiedCORS:           "Not Certified ( CORS )",
+	NotCertifiedCORS:           "Not Certified Origin",
 	NotCertifiedUserName:       "User Has Been Banned Or Not Exist",
 	NotCertifiedPassword:       "Password Not Match",
 	NotCertifiedLoginFailCount: "User Has Been Login Failed More Than 5 Times In 24 Hour",
 	NotCertifiedSession:        "Session Has Been Expired",
 	NotCertifiedMISToken:       "MIS Token Has Been Expired",
 	NotCertifiedPermission:     "User Does Not Have Permission For This Operation",
+	NotCertifiedToken:          "Token Is Unregistered Or Expired",
 
 	// 操作错误
 	WrongOperation:            "Wrong Operation",
 	HasChildGroups:            "Target Group Has Child Group ( s )",
-	HasUsers:                  "Target Group Has Users ( s )",
+	HasUsers:                  "Target Group Has User ( s )",
 	DuplicateUserName:         "Duplicate User Name",
 	AlreadyExistPage:          "Already Exist Page For This Group",
 	SwiperExceedTheUpperLimit: "Swiper Exceed The Upper Limit",
@@ -148,6 +153,7 @@ var errorText = map[int]string{
 	SmsCodeExpired:            "Sms Code Was Expired",
 	SmsCodeError:              "Sms Code Was Mismatch Last One",
 	AlreadyExistGroup:         "Already Exist This Group",
+	MissingAuthInfo:           "Missing Authentication Info",
 }
 
 // ErrorText 用于获取错误代码对应的错误文本
